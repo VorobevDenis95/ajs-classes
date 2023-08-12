@@ -1,6 +1,10 @@
-import {
-  Character, Bowman, Swordsman, Magician, Undead, Zombie, Daemon,
-} from '..';
+import Character from '../classes/character';
+import { Bowman } from '../classes/bowman';
+import { Daemon } from '../classes/daemon';
+import { Magician } from '../classes/magician';
+import { Swordsman } from '../classes/swordsman';
+import { Undead } from '../classes/undead';
+import { Zombie } from '../classes/zombie';
 
 test('classBowman', () => {
   const bowman = new Bowman('Ivan', 'Bowman');
@@ -88,12 +92,14 @@ test('classCharacter', () => {
 
 test('errorSymbol', () => {
   expect(() => {
+    // eslint-disable-next-line no-unused-vars
     const character = new Character('A', 'Bowman');
   }).toThrow('Имя не должно быть менее 2х или более 10 символов');
 });
 
 test('errorType', () => {
   expect(() => {
+    // eslint-disable-next-line no-unused-vars
     const character = new Character('Andrew', 'Ivan');
   }).toThrow('Данный тип несуществует');
 });
