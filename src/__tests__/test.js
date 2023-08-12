@@ -1,0 +1,99 @@
+import {
+  Character, Bowman, Swordsman, Magician, Undead, Zombie, Daemon,
+} from '..';
+
+test('classBowman', () => {
+  const bowman = new Bowman('Ivan', 'Bowman');
+  expect(bowman).toEqual({
+    name: 'Ivan',
+    type: 'Bowman',
+    health: 100,
+    level: 1,
+    attack: 25,
+    defence: 25,
+  });
+});
+
+test('classSwordsman', () => {
+  const swordsman = new Swordsman('Ivan', 'Swordsman');
+  expect(swordsman).toEqual({
+    name: 'Ivan',
+    type: 'Swordsman',
+    health: 100,
+    level: 1,
+    attack: 40,
+    defence: 10,
+  });
+});
+
+test('classMagician', () => {
+  const magician = new Magician('Ivan', 'Magician');
+
+  expect(magician).toEqual({
+    name: 'Ivan',
+    type: 'Magician',
+    health: 100,
+    level: 1,
+    attack: 10,
+    defence: 40,
+  });
+});
+test('classUndead', () => {
+  const undead = new Undead('Ivan', 'Undead');
+  expect(undead).toEqual({
+    name: 'Ivan',
+    type: 'Undead',
+    health: 100,
+    level: 1,
+    attack: 25,
+    defence: 25,
+  });
+});
+test('classZombie', () => {
+  const zombie = new Zombie('Ivan', 'Zombie');
+
+  expect(zombie).toEqual({
+    name: 'Ivan',
+    type: 'Zombie',
+    health: 100,
+    level: 1,
+    attack: 40,
+    defence: 10,
+  });
+});
+
+test('classDaemon', () => {
+  const daemon = new Daemon('Ivan', 'Daemon');
+
+  expect(daemon).toEqual({
+    name: 'Ivan',
+    type: 'Daemon',
+    health: 100,
+    level: 1,
+    attack: 10,
+    defence: 40,
+  });
+});
+
+test('classCharacter', () => {
+  const character = new Character('Ivan', 'Zombie');
+
+  expect(character).toEqual({
+    name: 'Ivan',
+    type: 'Zombie',
+    health: 100,
+    level: 1,
+  });
+});
+
+test('errorSymbol', () => {
+  expect(() => {
+    const character = new Character('A', 'Bowman');
+  }).toThrow('Имя не должно быть менее 2х или более 10 символов');
+});
+
+test('errorType', () => {
+  expect(() => {
+    const character = new Character('Andrew', 'Ivan');
+  }).toThrow('Данный тип несуществует');
+});
